@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask_restful import Resource, Api
-from app.api.trending import Trending
+from app.api.tv_shows import Top250
 
 app = Flask(__name__)
 api = Api(app)
@@ -20,7 +20,7 @@ class HelloWorld(Resource):
 
 
 api.add_resource(HelloWorld, '/')
-api.add_resource(Trending, '/trending')
+api.add_resource(Top250, '/tv-shows/top250')
 
 if __name__ == '__main__':
     app.run(debug=True)
