@@ -6,7 +6,7 @@ except e:
     print('Caught exception while importing: {}'.format(e))
 
 
-URL = 'https://www.youtube.com/feed/trending'
+URL = 'https://www.imdb.com/chart/toptv/?ref_=nv_tvv_250'
 
 
 def main():
