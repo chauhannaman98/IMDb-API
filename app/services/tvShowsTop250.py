@@ -17,11 +17,21 @@ year_of_release = []
 show_url = []
 show_ratings = []
 show_starcast = []
-output_dict = {}
+top250 = []
 
 
-def save_to_dict():
-    output_dict.update(data=True)
+def save_to_list():
+    top250.clear()
+    for i in range(250):
+        item_dict = {}
+        item_dict['rank'] = show_ranks[i]
+        item_dict['title'] = show_title[i]
+        item_dict['year-of-release'] = year_of_release[i]
+        item_dict['starcast'] = show_starcast[i]
+        item_dict['url'] = show_url[i]
+        item_dict['rating'] = show_ratings[i]
+
+        top250.append(item_dict)
 
 
 def get_data():
@@ -52,8 +62,8 @@ def get_data():
 
 def getTop250Shows():
     get_data()
-    save_to_dict()
-    return output_dict
+    save_to_list()
+    return top250
 
 
 def main():
