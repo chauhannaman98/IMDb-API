@@ -12,14 +12,14 @@ class Home(Resource):
         pass
 
     def get(self):
-        return {
+        return jsonify({
             'status': True,
             'date': str(date.today().strftime("%b-%d-%Y")),
             'source': 'https://github.com/chauhannaman98/IMDb-API',
             'api-services-available': {
                 'Top25 TV Shows': request.base_url+'tv-shows/top250',
             }
-        }
+        })
 
 
 api.add_resource(Home, '/')
