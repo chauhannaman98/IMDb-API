@@ -51,7 +51,7 @@ Coming soon in upcoming updates
 **Description:** This API will give a JSON response having top 250 TV shows in the ranked according to 
 their ratings on [IMDb](https://www.imdb.com/chart/toptv/?ref_=nv_tvv_250). In short, it gives the
 top rates 250 shows from IMDb in a JSON format. Key `top250` here has a list of 250 dictonaries. Each
-dictionary of key-value pairs that have details TV Shows including `rank`, `rating`, `starcast`, `title`,
+dictionary of key-value pairs that have details of TV Shows including `rank`, `rating`, `starcast`, `title`,
 `url` and `year-of-release`.
 
 ```json
