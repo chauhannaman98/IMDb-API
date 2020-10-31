@@ -36,17 +36,23 @@ date when API has been called, status and GitHub repository URL.
 
 1. [Search by title](#Search-by-title)
 
+## 1. Search by title
+
 Coming soon in upcoming updates
 
 # TV Shows
 
 1. [Top 250](#Top-250)
 
+## 1. Top 250
+
 **URL:** https://imdbapi.herokuapp.com/tv-shows/top250
 
 **Description:** This API will give a JSON response having top 250 TV shows in the ranked according to 
 their ratings on [IMDb](https://www.imdb.com/chart/toptv/?ref_=nv_tvv_250). In short, it gives the
-top rates 250 shows from IMDb in a JSON format.
+top rates 250 shows from IMDb in a JSON format. Key `top250` here has a list of 250 dictonaries. Each
+dictionary of key-value pairs that have details TV Shows including `rank`, `rating`, `starcast`, `title`,
+`url` and `year-of-release`.
 
 ```json
 {
@@ -54,12 +60,12 @@ top rates 250 shows from IMDb in a JSON format.
     "status": true,
     "top250": [
         {
-            "rank": 1,                                          // Rank of the show
-            "rating": "9.5",                                    // Rating
-            "starcast": "David Attenborough",                   // Starcast
-            "title": "Planet Earth II",                         // Title of the show
-            "url": "https://www.imdb.com/title/tt5491994/",     // URL
-            "year-of-release": "2016"                           // Year of release
+            "rank": 1,
+            "rating": "9.5",
+            "starcast": "David Attenborough",
+            "title": "Planet Earth II",
+            "url": "https://www.imdb.com/title/tt5491994/",
+            "year-of-release": "2016"
         },
     ]
 }
