@@ -1,7 +1,6 @@
 try:
     from bs4 import BeautifulSoup
     import requests
-    import json
 except e:
     print('Caught exception while importing: {}'.format(e))
 
