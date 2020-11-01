@@ -25,12 +25,13 @@ date when API has been called, status and GitHub repository URL.
 
 ```json
 {
-    "status": true,
+    "api-services-available": {
+        "Search by title": "https://imdbapi.herokuapp.com/search?q=TitleHere",
+        "Top25 TV Shows": "https://imdbapi.herokuapp.com/tv-shows/top250"
+    },
     "date": "Oct-31-2020",
     "source": "https://github.com/chauhannaman98/IMDb-API",
-    "api-services-available": {
-        "Top25 TV Shows": "https://imdbapi.herokuapp.com/tv-shows/top250"
-    }
+    "status": true
 }
 ```
 
