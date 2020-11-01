@@ -40,7 +40,7 @@ def searchByTitle(title):
 
     for td in tds:
         _title = td.find('a').get_text()
-        _url = 'https://www.imdb.com/'+td.find('a')['href']
+        _url = 'https://www.imdb.com'+td.find('a')['href']
 
         titles.append(_title)
         urls.append(_url)
