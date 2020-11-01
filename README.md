@@ -21,6 +21,8 @@ A REST-API for IMDb based on Flask and BeautifulSoup using Python3. This API is 
 **Description:** This API will give a simple JSON response regarding the services currently available along with
 date when API has been called, status and GitHub repository URL.
 
+**Response:**
+
 ```json
 {
     "status": true,
@@ -38,7 +40,29 @@ date when API has been called, status and GitHub repository URL.
 
 ## 1. Search by title
 
-Coming soon in upcoming updates
+**URL:** https://imdbapi.herokuapp.com/search
+
+**Params:**
+1. `q` = query or the title to be searched
+
+**Description:** This API will give a JSON response with a list of search results on the basis of the
+title you sent as the param(`q`). List contains dictionaries where each dictionary consists of 2 
+key-value pairs, `title` and `url`.
+
+**Response:**
+
+```json
+{
+    "date": "Nov-01-2020",
+    "search-results": [
+        {
+            "title": "Crown",
+            "url": "https://www.imdb.com/title/tt3432862/"
+        },
+    ],
+    "status": true
+}
+```
 
 # TV Shows
 
@@ -53,6 +77,8 @@ their ratings on [IMDb](https://www.imdb.com/chart/toptv/?ref_=nv_tvv_250). In s
 top rates 250 shows from IMDb in a JSON format. Key `top250` here has a list of 250 dictonaries. Each
 dictionary of key-value pairs that have details of TV Shows including `rank`, `rating`, `starcast`, `title`,
 `url` and `year-of-release`.
+
+**Response:**
 
 ```json
 {
