@@ -51,9 +51,9 @@ def get_data():
         # Store data to lists
         show_ranks.append(i)
         show_title.append(title.get_text())
-        year_of_release.append(year.strip('(').strip(')'))
+        year_of_release.append(int(year.strip('(').strip(')')))
         show_url.append(url)
-        show_ratings.append(rating)
+        show_ratings.append(float(rating))
         show_starcast.append(title['title'])
 
         i += 1
