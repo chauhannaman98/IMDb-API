@@ -26,7 +26,8 @@ date when API has been called, status and GitHub repository URL.
 ```json
 {
     "api-services-available": {
-        "Search by title": "https://imdbapi.herokuapp.com/search?q=TitleHere",
+        "Search by name": "https://imdbapi.herokuapp.com/searchname?q=param",
+        "Search by title": "https://imdbapi.herokuapp.com/search?q=param",
         "Top25 TV Shows": "https://imdbapi.herokuapp.com/tv-shows/top250"
     },
     "date": "Oct-31-2020",
@@ -37,7 +38,8 @@ date when API has been called, status and GitHub repository URL.
 
 # Search
 
-1. [Search by title](#Search-by-title)
+1. [Search by title](#1.-Search-by-title)
+2. [Search by name](#2.-search-by-name)
 
 ## 1. Search by title
 
@@ -65,9 +67,36 @@ key-value pairs, `title` and `url`.
 }
 ```
 
+## 2. Search by name
+
+**URL:** https://imdbapi.herokuapp.com/searchname
+
+**Params:**
+1. `q` = query or the title to be searched
+
+**Description:** This API will give a JSON response with a list of search results on the basis of the
+name of celebrity you sent as the param(`q`). List contains dictionaries where each dictionary consists of 2 
+key-value pairs, `name` and `url`.
+
+**Response:**
+
+```json
+{
+    "date": "Nov-02-2020",
+    "search-results": [
+        {
+            "name": "Jim Carrey",
+            "url": "https://www.imdb.com/name/nm0000120/"
+        },
+    ],
+    "status": true
+}
+```
+
+
 # TV Shows
 
-1. [Top 250](#Top-250)
+1. [Top 250](#1.-Top-250)
 
 ## 1. Top 250
 
