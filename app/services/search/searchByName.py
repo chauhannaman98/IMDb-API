@@ -17,7 +17,7 @@ def create_result_list(number_of_results):
 
     for i in range(number_of_results):
         item_dict = {}
-        item_dict['title'] = titles[i]
+        item_dict['name'] = titles[i]
         item_dict['url'] = urls[i]
 
         search_results.append(item_dict)
