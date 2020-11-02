@@ -1,8 +1,8 @@
 [![time tracker](https://wakatime.com/badge/github/chauhannaman98/IMDb-API.svg)](https://wakatime.com/badge/github/chauhannaman98/IMDb-API) 
 
-![GitHub](https://img.shields.io/github/license/chauhannaman98/IMDb-API) ![Lines of code](https://img.shields.io/tokei/lines/github/chauhannaman98/IMDb-API) ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/chauhannaman98/IMDb-API/flask)
+![Lines of code](https://img.shields.io/tokei/lines/github/chauhannaman98/IMDb-API) ![GitHub](https://img.shields.io/github/license/chauhannaman98/IMDb-API) ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/chauhannaman98/IMDb-API/flask)
 
-![GitHub pull requests](https://img.shields.io/github/issues-pr/chauhannaman98/IMDb-API) ![GitHub issues](https://img.shields.io/github/issues-raw/chauhannaman98/IMDb-API?color=red) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/chauhannaman98/IMDb-API)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/chauhannaman98/IMDb-API) ![GitHub issues](https://img.shields.io/github/issues-raw/chauhannaman98/IMDb-API?color=red) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/chauhannaman98/IMDb-API?include_prereleases)
 
 # IMDb-API
 
