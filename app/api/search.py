@@ -15,3 +15,13 @@ class SearchByTitle(Resource):
             'date': str(date.today().strftime("%b-%d-%Y")),
             'search-results': searchByTitle(title)
         })
+
+
+class SearchByName(Resource):
+    def get(self):
+
+        return jsonify({
+            'status': True,
+            'date': str(date.today().strftime("%b-%d-%Y")),
+            'search-results': 'name search results here',
+        })

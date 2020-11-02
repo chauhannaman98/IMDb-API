@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from datetime import date
 from flask_restful import Resource, Api
-from app.api.search import SearchByTitle
+from app.api.search import SearchByTitle, SearchByName
 from app.api.tv_shows import Top250
 
 app = Flask(__name__)
@@ -19,6 +19,7 @@ class Home(Resource):
             'source': 'https://github.com/chauhannaman98/IMDb-API',
             'api-services-available': {
                 'Search by title': request.base_url+'search?q=TitleHere',
+                'Search by name': request.base_url+'searchname?q=TitleHere',
                 'Top25 TV Shows': request.base_url+'tv-shows/top250',
             }
         })
@@ -26,6 +27,7 @@ class Home(Resource):
 
 api.add_resource(Home, '/')
 api.add_resource(SearchByTitle, '/search', endpoint='search')
+api.add_resource(SearchByName, '/searchname', endpoint='searchname')
 api.add_resource(Top250, '/tv-shows/top250', endpoint='top250')
 
 if __name__ == '__main__':
