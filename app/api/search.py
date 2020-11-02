@@ -1,8 +1,10 @@
 from flask_restful import Resource
 from flask import jsonify, request
 from datetime import date
-from app.services.searchByTitle import searchByTitle
-from app.services import searchByName
+from app.services.search import (
+    searchByTitle,
+    searchByName,
+)
 
 
 class SearchByTitle(Resource):
@@ -14,7 +16,7 @@ class SearchByTitle(Resource):
         return jsonify({
             'status': True,
             'date': str(date.today().strftime("%b-%d-%Y")),
-            'search-results': searchByTitle(title)
+            'search-results': searchByTitle.searchByTitle(title)
         })
 
 
