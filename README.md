@@ -38,10 +38,10 @@ date when API has been called, status and GitHub repository URL.
 
 # Search
 
-1. [Search by title](#1.-Search-by-title)
-2. [Search by name](#2.-search-by-name)
+1. [Search by title](#search-by-title)
+2. [Search by name](#search-by-name)
 
-## 1. Search by title
+## Search by title
 
 **URL:** https://imdbapi.herokuapp.com/search
 
@@ -67,7 +67,7 @@ key-value pairs, `title` and `url`.
 }
 ```
 
-## 2. Search by name
+## Search by name
 
 **URL:** https://imdbapi.herokuapp.com/searchname
 
@@ -96,9 +96,9 @@ key-value pairs, `name` and `url`.
 
 # TV Shows
 
-1. [Top 250](#1.-Top-250)
+1. [Top 250](#top-250)
 
-## 1. Top 250
+## Top 250
 
 **URL:** https://imdbapi.herokuapp.com/tv-shows/top250
 
