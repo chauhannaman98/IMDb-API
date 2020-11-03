@@ -19,11 +19,14 @@ class Search(Resource):
 
         if(q_type == 'title'):
             response = searchByTitle.searchByTitle(q)
+            docs = 'title'
         elif(q_type == 'name'):
             response = searchByName.searchByName(q)
+            docs = 'name'
 
         return jsonify({
             'status': True,
             'date': str(date.today().strftime("%b-%d-%Y")),
+            'docs': 'https://github.com/chauhannaman98/IMDb-API#search-by-{}'.format(docs),
             'search-results': response
         })
