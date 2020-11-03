@@ -1,10 +1,12 @@
 try:
     from bs4 import BeautifulSoup
     import requests
+    import re
 except e:
     print('Caught exception while importing: {}'.format(e))
 
 BASE_URL = 'https://www.imdb.com/find?s=tt&q='
+YEAR_PATTERN = r'\(\d{4,4}\)'
 
 search_results = []
 titles = []
@@ -20,6 +22,7 @@ def create_result_list(number_of_results):
         item_dict = {}
         item_dict['title'] = titles[i]
         item_dict['url'] = urls[i]
+        item_dict['year-of-release'] = year_of_release[i]
 
         search_results.append(item_dict)
 
@@ -42,8 +45,21 @@ def searchByTitle(title):
         _title = td.find('a').get_text()
         _url = 'https://www.imdb.com'+td.find('a')['href']
 
+        try:
+            result = re.findall(YEAR_PATTERN, td.get_text())
+            _year = int(result[0].strip('(').strip(')'))
+        except Exception as e:
+            print(e)
+            _year = None
+
         titles.append(_title)
         urls.append(_url)
+        year_of_release.append(_year)
+
+    # txt = tds[0].get_text()
+    # result = re.findall(YEAR_PATTERN, txt)
+    # print(txt)
+    # print(int(result[0].strip('(').strip(')')))
 
     create_result_list(number_of_results)
 
@@ -51,7 +67,7 @@ def searchByTitle(title):
 
 
 def main():
-    title = 'tarzan'
+    title = 'intersteller'
     results = searchByTitle(title)
     print(results)
 
