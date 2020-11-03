@@ -16,51 +16,61 @@ A REST-API for IMDb based on Flask and BeautifulSoup using Python3. This API is 
 
 # Home
 
-**URL:** https://imdbapi.herokuapp.com/
+**Endpoint:** https://imdbapi.herokuapp.com/
 
 **Description:** This API will give a simple JSON response regarding the services currently available along with
 date when API has been called, status and GitHub repository URL.
 
-**Response:**
+**Sample Response:**
 
 ```json
 {
     "api-services-available": {
-        "Search by name": "https://imdbapi.herokuapp.com/searchname?q=param",
-        "Search by title": "https://imdbapi.herokuapp.com/search?q=param",
+        "Search by name": "http://imdbapi.herokuapp.com/search?stype=name&q=Jim",
+        "Search by title": "http://imdbapi.herokuapp.com/search?stype=title&q=Titanic",
         "Top25 TV Shows": "https://imdbapi.herokuapp.com/tv-shows/top250"
     },
     "date": "Oct-31-2020",
-    "source": "https://github.com/chauhannaman98/IMDb-API",
+    "docs": "https://github.com/chauhannaman98/IMDb-API#imdb-api",
     "status": true
 }
 ```
 
 # Search
 
+**Endpoint:** https://imdbapi.herokuapp.com/search
+
 1. [Search by title](#search-by-title)
 2. [Search by name](#search-by-name)
 
 ## Search by title
 
-**URL:** https://imdbapi.herokuapp.com/search
-
 **Params:**
-1. `q` = query or the title to be searched
+
+1. `stype` = search type(`title` to search by title)
+2. `q` = query or the title to be searched
 
 **Description:** This API will give a JSON response with a list of search results on the basis of the
 title you sent as the param(`q`). List contains dictionaries where each dictionary consists of 2 
-key-value pairs, `title` and `url`.
+key-value pairs, `title`, `url` to the page on IMDb, `year-of-release` and `details` having list of
+strings having additional information regarding the title searched.
 
-**Response:**
+In case, no additional details are available on IMDb, `details` list will have no elements.
+
+**Sample Response:**
 
 ```json
 {
-    "date": "Nov-01-2020",
+    "date": "Nov-03-2020",
+    "docs": "https://github.com/chauhannaman98/IMDb-API#search-by-title",
     "search-results": [
         {
-            "title": "Crown",
-            "url": "https://www.imdb.com/title/tt3432862/"
+            "details": [
+                "TV Episode"
+            ],
+            "title": "Intersteller",
+            "url": "https://www.imdb.com/title/tt5169292/",
+            "year-of-release": 2014
         },
     ],
     "status": true
@@ -69,20 +79,20 @@ key-value pairs, `title` and `url`.
 
 ## Search by name
 
-**URL:** https://imdbapi.herokuapp.com/searchname
-
 **Params:**
-1. `q` = query or the title to be searched
+1. `stype` = search type(`name` to search by name of celebrity)
+2. `q` = query or the name of celebrity to be searched
 
 **Description:** This API will give a JSON response with a list of search results on the basis of the
 name of celebrity you sent as the param(`q`). List contains dictionaries where each dictionary consists of 2 
 key-value pairs, `name` and `url`.
 
-**Response:**
+**Sample Response:**
 
 ```json
 {
     "date": "Nov-02-2020",
+    "docs": "https://github.com/chauhannaman98/IMDb-API#search-by-name",
     "search-results": [
         {
             "name": "Jim Carrey",
@@ -100,7 +110,7 @@ key-value pairs, `name` and `url`.
 
 ## Top 250
 
-**URL:** https://imdbapi.herokuapp.com/tv-shows/top250
+**Endpoint:** https://imdbapi.herokuapp.com/tv-shows/top250
 
 **Description:** This API will give a JSON response having top 250 TV shows in the ranked according to 
 their ratings on [IMDb](https://www.imdb.com/chart/toptv/?ref_=nv_tvv_250). In short, it gives the
@@ -108,7 +118,7 @@ top rates 250 shows from IMDb in a JSON format. Key `top250` here has a list of 
 dictionary of key-value pairs that have details of TV Shows including `rank`, `rating`, `starcast`, `title`,
 `url` and `year-of-release`.
 
-**Response:**
+**Sample Response:**
 
 ```json
 {
