@@ -1,33 +1,29 @@
-from flask_restful import Resource
-from flask import jsonify, request
-from datetime import date
-from app.services.search import (
-    searchByTitle,
-    searchByName,
-)
+try:
+    from flask_restful import Resource
+    from flask import jsonify, request
+    from datetime import date
+    from app.services.search import (
+        searchByTitle,
+        searchByName,
+    )
+except e:
+    print('Caught exception while importing: {}'.format(e))
 
 
-class SearchByTitle(Resource):
+class Search(Resource):
     def get(self):
 
         args = request.args
-        title = args['q']
+        q = args['q']
+        q_type = args['stype']
+
+        if(q_type == 'title'):
+            response = searchByTitle.searchByTitle(q)
+        elif(q_type == 'name'):
+            response = searchByName.searchByName(q)
 
         return jsonify({
             'status': True,
             'date': str(date.today().strftime("%b-%d-%Y")),
-            'search-results': searchByTitle.searchByTitle(title)
-        })
-
-
-class SearchByName(Resource):
-    def get(self):
-
-        args = request.args
-        name = args['q']
-
-        return jsonify({
-            'status': True,
-            'date': str(date.today().strftime("%b-%d-%Y")),
-            'search-results': searchByName.searchByName(name)
+            'search-results': response
         })
