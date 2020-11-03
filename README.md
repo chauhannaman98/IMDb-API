@@ -127,11 +127,11 @@ dictionary of key-value pairs that have details of TV Shows including `rank`, `r
     "top250": [
         {
             "rank": 1,
-            "rating": "9.5",
+            "rating": 9.5,
             "starcast": "David Attenborough",
             "title": "Planet Earth II",
             "url": "https://www.imdb.com/title/tt5491994/",
-            "year-of-release": "2016"
+            "year-of-release": 2016
         },
     ]
 }
