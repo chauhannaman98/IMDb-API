@@ -1,37 +1,132 @@
-## Welcome to GitHub Pages
+# IMDb-API
 
-You can use the [editor on GitHub](https://github.com/chauhannaman98/IMDb-API/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+A REST-API for IMDb based on Flask and BeautifulSoup using Python3. This API is deployed on Heroku's server on non-production dynos. Thus, the first call to the API may take longer time than expected. The following calls will be fast comparatively.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Features
 
-### Markdown
+1. [Home](#Home)
+2. [Search](#Search)
+3. [TV Shows](#TV-Shows)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# Home
 
-```markdown
-Syntax highlighted code block
+**Endpoint:** https://imdbapi.herokuapp.com/
 
-# Header 1
-## Header 2
-### Header 3
+**Description:** This API will give a simple JSON response regarding the services currently available along with
+date when API has been called, status and GitHub repository URL.
 
-- Bulleted
-- List
+**Sample Response:**
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```json
+{
+    "api-services-available": {
+        "Search by name": "http://imdbapi.herokuapp.com/search?stype=name&q=Jim",
+        "Search by title": "http://imdbapi.herokuapp.com/search?stype=title&q=Titanic",
+        "Top25 TV Shows": "https://imdbapi.herokuapp.com/tv-shows/top250"
+    },
+    "date": "Oct-31-2020",
+    "docs": "https://github.com/chauhannaman98/IMDb-API#imdb-api",
+    "status": true
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+# Search
 
-### Jekyll Themes
+**Endpoint:** https://imdbapi.herokuapp.com/search
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/chauhannaman98/IMDb-API/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+1. [Search by title](#search-by-title)
+2. [Search by name](#search-by-name)
 
-### Support or Contact
+## Search by title
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+**Params:**
+
+1. `stype` = search type(`title` to search by title)
+2. `q` = query or the title to be searched
+
+**Description:** This API will give a JSON response with a list of search results on the basis of the
+title you sent as the param(`q`). List contains dictionaries where each dictionary consists of 2 
+key-value pairs, `title`, `url` to the page on IMDb, `year-of-release` and `details` having list of
+strings having additional information regarding the title searched.
+
+In case, no additional details are available on IMDb, `details` list will have no elements.
+
+**Sample Response:**
+
+```json
+{
+    "date": "Nov-03-2020",
+    "docs": "https://github.com/chauhannaman98/IMDb-API#search-by-title",
+    "search-results": [
+        {
+            "details": [
+                "TV Episode"
+            ],
+            "title": "Intersteller",
+            "url": "https://www.imdb.com/title/tt5169292/",
+            "year-of-release": 2014
+        },
+    ],
+    "status": true
+}
+```
+
+## Search by name
+
+**Params:**
+1. `stype` = search type(`name` to search by name of celebrity)
+2. `q` = query or the name of celebrity to be searched
+
+**Description:** This API will give a JSON response with a list of search results on the basis of the
+name of celebrity you sent as the param(`q`). List contains dictionaries where each dictionary consists of 2 
+key-value pairs, `name` and `url`.
+
+**Sample Response:**
+
+```json
+{
+    "date": "Nov-02-2020",
+    "docs": "https://github.com/chauhannaman98/IMDb-API#search-by-name",
+    "search-results": [
+        {
+            "name": "Jim Carrey",
+            "url": "https://www.imdb.com/name/nm0000120/"
+        },
+    ],
+    "status": true
+}
+```
+
+
+# TV Shows
+
+1. [Top 250](#top-250)
+
+## Top 250
+
+**Endpoint:** https://imdbapi.herokuapp.com/tv-shows/top250
+
+**Description:** This API will give a JSON response having top 250 TV shows in the ranked according to 
+their ratings on [IMDb](https://www.imdb.com/chart/toptv/?ref_=nv_tvv_250). In short, it gives the
+top rates 250 shows from IMDb in a JSON format. Key `top250` here has a list of 250 dictonaries. Each
+dictionary of key-value pairs that have details of TV Shows including `rank`, `rating`, `starcast`, `title`,
+`url` and `year-of-release`.
+
+**Sample Response:**
+
+```json
+{
+    "date": "Oct-31-2020",
+    "status": true,
+    "top250": [
+        {
+            "rank": 1,
+            "rating": 9.5,
+            "starcast": "David Attenborough",
+            "title": "Planet Earth II",
+            "url": "https://www.imdb.com/title/tt5491994/",
+            "year-of-release": 2016
+        },
+    ]
+}
+```
