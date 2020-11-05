@@ -10,7 +10,6 @@ BASE_URL = 'https://www.imdb.com/find?s=tt&q='
 YEAR_PATTERN = r'\(\d{4,4}\)'
 DETAIL_PATTERN = r'\((?!I+)([a-zA-Z-\s]+)\)'
 
-search_results = []
 titles = []
 year_of_release = []
 urls = []
@@ -18,6 +17,7 @@ details = []
 
 
 def create_result_list(number_of_results):
+    search_results = []
     search_results.clear()
 
     for i in range(number_of_results):
@@ -28,6 +28,8 @@ def create_result_list(number_of_results):
         item_dict['details'] = details[i]
 
         search_results.append(item_dict)
+
+    return search_results
 
 
 def searchByTitle(title):
@@ -63,13 +65,13 @@ def searchByTitle(title):
             _details = re.findall(DETAIL_PATTERN, txt)
         except Exception as e:
             _details = None
-        
+
         titles.append(_title)
         urls.append(_url)
         year_of_release.append(_year)
         details.append(_details)
 
-    create_result_list(number_of_results)
+    search_results = create_result_list(number_of_results)
 
     return search_results
 

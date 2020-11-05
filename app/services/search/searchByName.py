@@ -6,13 +6,14 @@ except e:
 
 BASE_URL = 'https://www.imdb.com/find?s=nm&q='
 
-search_results = []
+# search_results = []
 titles = []
 urls = []
-details = [] # TODO
+details = []  # TODO
 
 
 def create_result_list(number_of_results):
+    search_results = []
     search_results.clear()
 
     for i in range(number_of_results):
@@ -21,6 +22,8 @@ def create_result_list(number_of_results):
         item_dict['url'] = urls[i]
 
         search_results.append(item_dict)
+
+    return search_results
 
 
 def searchByName(title):
@@ -44,7 +47,7 @@ def searchByName(title):
         titles.append(_title)
         urls.append(_url)
 
-    create_result_list(number_of_results)
+    search_results = create_result_list(number_of_results)
 
     return search_results
 
