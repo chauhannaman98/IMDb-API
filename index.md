@@ -55,7 +55,6 @@ In case, no additional details are available on IMDb, `details` list will have n
 
 ```json
 {
-    "date": "Nov-03-2020",
     "docs": "https://github.com/chauhannaman98/IMDb-API#search-by-title",
     "search-results": [
         {
@@ -67,7 +66,7 @@ In case, no additional details are available on IMDb, `details` list will have n
             "year-of-release": 2014
         },
     ],
-    "status": true
+    "success": true
 }
 ```
 
@@ -85,7 +84,6 @@ key-value pairs, `name` and `url`.
 
 ```json
 {
-    "date": "Nov-02-2020",
     "docs": "https://github.com/chauhannaman98/IMDb-API#search-by-name",
     "search-results": [
         {
@@ -93,7 +91,7 @@ key-value pairs, `name` and `url`.
             "url": "https://www.imdb.com/name/nm0000120/"
         },
     ],
-    "status": true
+    "success": true
 }
 ```
 
@@ -116,8 +114,7 @@ dictionary of key-value pairs that have details of TV Shows including `rank`, `r
 
 ```json
 {
-    "date": "Oct-31-2020",
-    "status": true,
+    "success": true,
     "top250": [
         {
             "rank": 1,
