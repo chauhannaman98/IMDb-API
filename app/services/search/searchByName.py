@@ -1,7 +1,7 @@
 try:
     from bs4 import BeautifulSoup
     import requests
-except e:
+except Exception as e:
     print('Caught exception while importing: {}'.format(e))
 
 BASE_URL = 'https://www.imdb.com/find?s=nm&q='

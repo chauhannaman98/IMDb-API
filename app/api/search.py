@@ -6,7 +6,7 @@ try:
         searchByTitle,
         searchByName,
     )
-except e:
+except Exception as e:
     print('Caught exception while importing: {}'.format(e))
 
 
