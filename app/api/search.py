@@ -20,7 +20,6 @@ class Search(Resource):
         if(q_type == 'title'):
             response_obj = searchByTitle.SearchByTitle()
             response = response_obj.searchByTitle(q)
-            print(response)
             docs = 'title'
         elif(q_type == 'name'):
             response_obj = searchByName.SearchByName()

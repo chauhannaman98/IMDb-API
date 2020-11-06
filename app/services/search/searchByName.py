@@ -8,14 +8,6 @@ BASE_URL = 'https://www.imdb.com/find?s=nm&q='
 
 
 class SearchByName:
-    # search_results = []
-    names = []
-    urls = []
-    details = []  # TODO
-
-    def __init__(self):
-        print('SearchByName created')
-
     def create_result_list(self, number_of_results):
         search_results = []
         search_results.clear()
@@ -30,6 +22,10 @@ class SearchByName:
         return search_results
 
     def searchByName(self, name):
+        search_results = []
+        names = []
+        urls = []
+        details = []
         url = BASE_URL + name
         page = requests.get(url)
 
@@ -47,12 +43,17 @@ class SearchByName:
             _name = td.find('a').get_text()
             _url = 'https://www.imdb.com'+td.find('a')['href']
 
-            self.names.append(_name)
-            self.urls.append(_url)
+            names.append(_name)
+            urls.append(_url)
 
-        self.search_results = self.create_result_list(number_of_results)
+        for i in range(number_of_results):
+            item_dict = {}
+            item_dict['name'] = names[i]
+            item_dict['url'] = urls[i]
 
-        return self.search_results
+            search_results.append(item_dict)
+
+        return search_results
 
 
 def main():
