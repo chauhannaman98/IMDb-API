@@ -6,55 +6,59 @@ except Exception as e:
 
 BASE_URL = 'https://www.imdb.com/find?s=nm&q='
 
-# search_results = []
-titles = []
-urls = []
-details = []  # TODO
 
+class SearchByName:
+    # search_results = []
+    names = []
+    urls = []
+    details = []  # TODO
 
-def create_result_list(number_of_results):
-    search_results = []
-    search_results.clear()
+    def __init__(self):
+        print('SearchByName created')
 
-    for i in range(number_of_results):
-        item_dict = {}
-        item_dict['name'] = titles[i]
-        item_dict['url'] = urls[i]
+    def create_result_list(self, number_of_results):
+        search_results = []
+        search_results.clear()
 
-        search_results.append(item_dict)
+        for i in range(number_of_results):
+            item_dict = {}
+            item_dict['name'] = self.names[i]
+            item_dict['url'] = self.urls[i]
 
-    return search_results
+            search_results.append(item_dict)
 
+        return search_results
 
-def searchByName(title):
-    url = BASE_URL + title
-    page = requests.get(url)
+    def searchByName(self, name):
+        url = BASE_URL + name
+        page = requests.get(url)
 
-    soup = BeautifulSoup(page.text, 'html.parser')
+        soup = BeautifulSoup(page.text, 'html.parser')
 
-    main_div = soup.find('div', class_='article')
-    table = soup.find('table', class_='findList')
-    trs = soup.find_all('tr')
-    tds = soup.find_all('td', class_='result_text')
+        main_div = soup.find('div', class_='article')
+        table = soup.find('table', class_='findList')
+        trs = soup.find_all('tr')
+        tds = soup.find_all('td', class_='result_text')
 
-    header = soup.find('h1', class_='findHeader')
-    number_of_results = int(header.get_text().split(' ')[1])
+        header = soup.find('h1', class_='findHeader')
+        number_of_results = int(header.get_text().split(' ')[1])
 
-    for td in tds:
-        _title = td.find('a').get_text()
-        _url = 'https://www.imdb.com'+td.find('a')['href']
+        for td in tds:
+            _name = td.find('a').get_text()
+            _url = 'https://www.imdb.com'+td.find('a')['href']
 
-        titles.append(_title)
-        urls.append(_url)
+            self.names.append(_name)
+            self.urls.append(_url)
 
-    search_results = create_result_list(number_of_results)
+        self.search_results = self.create_result_list(number_of_results)
 
-    return search_results
+        return self.search_results
 
 
 def main():
     name = 'amitabh'
-    results = searchByName(name)
+    obj = SearchByName()
+    results = obj.searchByName(name)
     print(results)
 
 

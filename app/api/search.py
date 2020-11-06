@@ -18,10 +18,13 @@ class Search(Resource):
         q_type = args['stype']
 
         if(q_type == 'title'):
-            response = searchByTitle.searchByTitle(q)
+            response_obj = searchByTitle.SearchByTitle()
+            response = response_obj.searchByTitle(q)
+            print(response)
             docs = 'title'
         elif(q_type == 'name'):
-            response = searchByName.searchByName(q)
+            response_obj = searchByName.SearchByName()
+            response = response_obj.searchByName(q)
             docs = 'name'
 
         return jsonify({

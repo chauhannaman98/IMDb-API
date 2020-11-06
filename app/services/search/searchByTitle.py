@@ -10,75 +10,78 @@ BASE_URL = 'https://www.imdb.com/find?s=tt&q='
 YEAR_PATTERN = r'\(\d{4,4}\)'
 DETAIL_PATTERN = r'\((?!I+)([a-zA-Z-\s]+)\)'
 
-titles = []
-year_of_release = []
-urls = []
-details = []
 
-
-def create_result_list(number_of_results):
+class SearchByTitle:
+    titles = []
+    year_of_release = []
+    urls = []
+    details = []
     search_results = []
-    search_results.clear()
-
-    for i in range(number_of_results):
-        item_dict = {}
-        item_dict['title'] = titles[i]
-        item_dict['url'] = urls[i]
-        item_dict['year-of-release'] = year_of_release[i]
-        item_dict['details'] = details[i]
-
-        search_results.append(item_dict)
-
-    return search_results
 
 
-def searchByTitle(title):
-    url = BASE_URL + title
-    page = requests.get(url)
+    def create_result_list(self, number_of_results):
+        self.search_results.clear()
 
-    soup = BeautifulSoup(page.text, 'html.parser')
+        for i in range(number_of_results):
+            item_dict = {}
+            item_dict['title'] = self.titles[i]
+            item_dict['url'] = self.urls[i]
+            item_dict['year-of-release'] = self.year_of_release[i]
+            item_dict['details'] = self.details[i]
 
-    main_div = soup.find('div', class_='article')
-    table = soup.find('table', class_='findList')
-    trs = soup.find_all('tr')
-    tds = soup.find_all('td', class_='result_text')
+            self.search_results.append(item_dict)
 
-    header = soup.find('h1', class_='findHeader')
-    number_of_results = int(header.get_text().split(' ')[1])
+        return self.search_results
 
-    for td in tds:
-        _title = td.find('a').get_text()
-        _url = 'https://www.imdb.com'+td.find('a')['href']
 
-        try:
-            result = re.findall(YEAR_PATTERN, td.get_text())
-            _year = int(result[0].strip('(').strip(')'))
-        except Exception as e:
-            _year = None
+    def searchByTitle(self, title):
+        url = BASE_URL + title
+        page = requests.get(url)
 
-        try:
-            text = []
-            for x in td:
-                if isinstance(x, bs4.element.NavigableString):
-                    text.append(x.strip())
-            txt = " ".join(text)
-            _details = re.findall(DETAIL_PATTERN, txt)
-        except Exception as e:
-            _details = None
+        soup = BeautifulSoup(page.text, 'html.parser')
 
-        titles.append(_title)
-        urls.append(_url)
-        year_of_release.append(_year)
-        details.append(_details)
+        main_div = soup.find('div', class_='article')
+        table = soup.find('table', class_='findList')
+        trs = soup.find_all('tr')
+        tds = soup.find_all('td', class_='result_text')
 
-    search_results = create_result_list(number_of_results)
+        header = soup.find('h1', class_='findHeader')
+        number_of_results = int(header.get_text().split(' ')[1])
 
-    return search_results
+        for td in tds:
+            _title = td.find('a').get_text()
+            _url = 'https://www.imdb.com'+td.find('a')['href']
+
+            try:
+                result = re.findall(YEAR_PATTERN, td.get_text())
+                _year = int(result[0].strip('(').strip(')'))
+            except Exception as e:
+                _year = None
+
+            try:
+                text = []
+                for x in td:
+                    if isinstance(x, bs4.element.NavigableString):
+                        text.append(x.strip())
+                txt = " ".join(text)
+                _details = re.findall(DETAIL_PATTERN, txt)
+            except Exception as e:
+                _details = None
+
+            self.titles.append(_title)
+            self.urls.append(_url)
+            self.year_of_release.append(_year)
+            self.details.append(_details)
+
+        self.search_results = self.create_result_list(number_of_results)
+
+        return self.search_results
 
 
 def main():
     title = 'intersteller'
-    results = searchByTitle(title)
+    obj = SearchByTitle()
+    results = obj.searchByTitle(title)
     print(results)
 
 
