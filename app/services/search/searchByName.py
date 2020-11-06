@@ -8,19 +8,6 @@ BASE_URL = 'https://www.imdb.com/find?s=nm&q='
 
 
 class SearchByName:
-    def create_result_list(self, number_of_results):
-        search_results = []
-        search_results.clear()
-
-        for i in range(number_of_results):
-            item_dict = {}
-            item_dict['name'] = self.names[i]
-            item_dict['url'] = self.urls[i]
-
-            search_results.append(item_dict)
-
-        return search_results
-
     def searchByName(self, name):
         search_results = []
         names = []
