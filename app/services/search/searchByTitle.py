@@ -12,29 +12,13 @@ DETAIL_PATTERN = r'\((?!I+)([a-zA-Z-\s]+)\)'
 
 
 class SearchByTitle:
-    titles = []
-    year_of_release = []
-    urls = []
-    details = []
-    search_results = []
-
-
-    def create_result_list(self, number_of_results):
-        self.search_results.clear()
-
-        for i in range(number_of_results):
-            item_dict = {}
-            item_dict['title'] = self.titles[i]
-            item_dict['url'] = self.urls[i]
-            item_dict['year-of-release'] = self.year_of_release[i]
-            item_dict['details'] = self.details[i]
-
-            self.search_results.append(item_dict)
-
-        return self.search_results
-
-
     def searchByTitle(self, title):
+        titles = []
+        year_of_release = []
+        urls = []
+        details = []
+        search_results = []
+
         url = BASE_URL + title
         page = requests.get(url)
 
@@ -68,14 +52,21 @@ class SearchByTitle:
             except Exception as e:
                 _details = None
 
-            self.titles.append(_title)
-            self.urls.append(_url)
-            self.year_of_release.append(_year)
-            self.details.append(_details)
+            titles.append(_title)
+            urls.append(_url)
+            year_of_release.append(_year)
+            details.append(_details)
 
-        self.search_results = self.create_result_list(number_of_results)
+        for i in range(number_of_results):
+            item_dict = {}
+            item_dict['title'] = titles[i]
+            item_dict['url'] = urls[i]
+            item_dict['year-of-release'] = year_of_release[i]
+            item_dict['details'] = details[i]
 
-        return self.search_results
+            search_results.append(item_dict)
+
+        return search_results
 
 
 def main():
