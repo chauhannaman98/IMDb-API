@@ -27,8 +27,7 @@ class Search(Resource):
             docs = 'name'
 
         return jsonify({
-            'status': True,
-            'date': str(date.today().strftime("%b-%d-%Y")),
+            'success': True,
             'docs': 'https://github.com/chauhannaman98/IMDb-API#search-by-{}'.format(docs),
             'search-results': response
         })

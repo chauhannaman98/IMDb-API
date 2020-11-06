@@ -9,7 +9,6 @@ from app.services.tv_shows import (
 class Top250(Resource):
     def get(self):
         return jsonify({
-            'status': True,
-            'date': str(date.today().strftime("%b-%d-%Y")),
+            'success': True,
             'top250': tvShowsTop250.getTop250Shows()
         })
