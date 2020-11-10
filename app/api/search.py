@@ -1,7 +1,6 @@
 try:
     from flask_restful import Resource
     from flask import jsonify, request
-    from datetime import date
     from app.services.search import (
         searchByTitle,
         searchByName,

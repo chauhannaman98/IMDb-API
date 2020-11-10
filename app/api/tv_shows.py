@@ -1,6 +1,5 @@
 from flask_restful import Resource
 from flask import jsonify
-from datetime import date
 from app.services.tv_shows import (
     tvShowsTop250,
 )
