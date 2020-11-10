@@ -7,6 +7,7 @@ except Exception as e:
 
 BASE_URL = 'https://www.imdb.com/find?s=nm&q='
 DETAILS_PATTERN = r'\(([a-zA-Z\s]+)\,'
+MAJOR_WORK_PATTERN = r'\,\s{1,1}([A-Za-z\s\:]+\s\([\d]{4,4}\))\)'
 
 
 class SearchByName:
@@ -15,6 +16,7 @@ class SearchByName:
         names = []
         urls = []
         occupation = []
+        major_work = []
         url = BASE_URL + name
         page = requests.get(url)
 
@@ -34,19 +36,29 @@ class SearchByName:
 
             try:
                 detail = td.find('small').text
-                _detail = re.findall(DETAILS_PATTERN, detail)[0]
-            except:
-                _detail = None
-
+                try:
+                    _detail = re.findall(DETAILS_PATTERN, detail)[0]
+                except:
+                    _detail = None
+                try:
+                    _major_work = re.findall(MAJOR_WORK_PATTERN, detail)
+                except:
+                    _major_work = None
+            except Exception as e:
+                detail = None
+                print(e)
+            
             names.append(_name)
             urls.append(_url)
             occupation.append(_detail)
+            major_work.append(_major_work)
 
         for i in range(number_of_results):
             item_dict = {}
             item_dict['name'] = names[i]
             item_dict['url'] = urls[i]
             item_dict['occupation'] = occupation[i]
+            item_dict['major_work'] = major_work[i]
 
             search_results.append(item_dict)
 
