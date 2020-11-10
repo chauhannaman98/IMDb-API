@@ -1,10 +1,12 @@
 try:
     from bs4 import BeautifulSoup
     import requests
+    import re
 except Exception as e:
     print('Caught exception while importing: {}'.format(e))
 
 BASE_URL = 'https://www.imdb.com/find?s=nm&q='
+DETAILS_PATTERN = r'\(([a-zA-Z\s]+)\,'
 
 
 class SearchByName:
@@ -12,7 +14,7 @@ class SearchByName:
         search_results = []
         names = []
         urls = []
-        details = []
+        occupation = []
         url = BASE_URL + name
         page = requests.get(url)
 
@@ -30,13 +32,21 @@ class SearchByName:
             _name = td.find('a').get_text()
             _url = 'https://www.imdb.com'+td.find('a')['href']
 
+            try:
+                detail = td.find('small').text
+                _detail = re.findall(DETAILS_PATTERN, detail)[0]
+            except:
+                _detail = None
+
             names.append(_name)
             urls.append(_url)
+            occupation.append(_detail)
 
         for i in range(number_of_results):
             item_dict = {}
             item_dict['name'] = names[i]
             item_dict['url'] = urls[i]
+            item_dict['occupation'] = occupation[i]
 
             search_results.append(item_dict)
 
