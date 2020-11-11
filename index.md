@@ -45,7 +45,7 @@ date when API has been called, status and GitHub repository URL.
 2. `q` = query or the title to be searched
 
 **Description:** This API will give a JSON response with a list of search results on the basis of the
-title you sent as the param(`q`). List contains dictionaries where each dictionary consists of 2 
+title you sent as the param(`q`). List contains dictionaries where each dictionary consists of 4 
 key-value pairs, `title`, `url` to the page on IMDb, `year-of-release` and `details` having list of
 strings having additional information regarding the title searched.
 
