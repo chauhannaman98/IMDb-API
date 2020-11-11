@@ -7,7 +7,7 @@ except Exception as e:
 
 BASE_URL = 'https://www.imdb.com/find?s=nm&q='
 DETAILS_PATTERN = r'\(([a-zA-Z\s]+)\,'
-MAJOR_WORK_PATTERN = r'\,\s{1,1}([A-Za-z\s\:]+\s\([\d]{4,4}\))\)'
+MAJOR_WORK_PATTERN = r'\,\s{1,1}([A-Za-z\s\#\.\*\:\'\"]+(\s\([\d]+\))*)\)'
 
 
 class SearchByName:
@@ -36,17 +36,16 @@ class SearchByName:
 
             try:
                 detail = td.find('small').text
-                try:
-                    _detail = re.findall(DETAILS_PATTERN, detail)[0]
-                except:
-                    _detail = None
-                try:
-                    _major_work = re.findall(MAJOR_WORK_PATTERN, detail)
-                except:
-                    _major_work = None
             except Exception as e:
                 detail = None
-                print(e)
+            try:
+                _detail = re.findall(DETAILS_PATTERN, detail)[0]
+            except:
+                _detail = None
+            try:
+                _major_work = re.findall(MAJOR_WORK_PATTERN, detail)[0][0]
+            except:
+                _major_work = None
             
             names.append(_name)
             urls.append(_url)
