@@ -4,9 +4,9 @@ A REST-API for IMDb based on Flask and BeautifulSoup using Python3. This API is 
 
 # Features
 
-1. [Home](#Home)
-2. [Search](#Search)
-3. [TV Shows](#TV-Shows)
+1. [Home](#home)
+2. [Search](#search)
+3. [TV Shows](#tv-shows)
 
 # Home
 
