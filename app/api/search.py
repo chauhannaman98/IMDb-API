@@ -27,6 +27,6 @@ class Search(Resource):
 
         return jsonify({
             'success': True,
-            'docs': 'https://github.com/chauhannaman98/IMDb-API#search-by-{}'.format(docs),
+            'docs': 'https://chauhannaman98.github.io/IMDb-API/#search-by-{}'.format(docs),
             'search-results': response
         })

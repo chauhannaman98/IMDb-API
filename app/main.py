@@ -16,7 +16,7 @@ class Home(Resource):
         return jsonify({
             'status': True,
             'date': str(date.today().strftime("%b-%d-%Y")),
-            'docs': 'https://github.com/chauhannaman98/IMDb-API#imdb-api',
+            'docs': 'https://chauhannaman98.github.io/IMDb-API/',
             'api-services-available': {
                 'Search by title': request.base_url+'search?stype=title&q=Titanic',
                 'Search by name': request.base_url+'search?stype=name&q=Jim',
