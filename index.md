@@ -4,9 +4,9 @@ A REST-API for IMDb based on Flask and BeautifulSoup using Python3. This API is 
 
 # Features
 
-1. [Home](#home)
-2. [Search](#search)
-3. [TV Shows](#tv-shows)
+1. [Home](#Home)
+2. [Search](#Search)
+3. [TV Shows](#TV-Shows)
 
 # Home
 
@@ -25,7 +25,7 @@ date when API has been called, status and GitHub repository URL.
         "Top25 TV Shows": "https://imdbapi.herokuapp.com/tv-shows/top250"
     },
     "date": "Oct-31-2020",
-    "docs": "https://github.com/chauhannaman98/IMDb-API#imdb-api",
+    "docs": "https://chauhannaman98.github.io/IMDb-API/",
     "status": true
 }
 ```
@@ -55,7 +55,8 @@ In case, no additional details are available on IMDb, `details` list will have n
 
 ```json
 {
-    "docs": "https://github.com/chauhannaman98/IMDb-API#search-by-title",
+    "date": "Nov-03-2020",
+    "docs": "https://chauhannaman98.github.io/IMDb-API/#search-by-title",
     "search-results": [
         {
             "details": [
@@ -66,7 +67,7 @@ In case, no additional details are available on IMDb, `details` list will have n
             "year-of-release": 2014
         },
     ],
-    "success": true
+    "status": true
 }
 ```
 
@@ -77,21 +78,24 @@ In case, no additional details are available on IMDb, `details` list will have n
 2. `q` = query or the name of celebrity to be searched
 
 **Description:** This API will give a JSON response with a list of search results on the basis of the
-name of celebrity you sent as the param(`q`). List contains dictionaries where each dictionary consists of 2 
-key-value pairs, `name` and `url`.
+name of celebrity you sent as the param(`q`). List contains dictionaries where each dictionary consists of 4 
+key-value pairs, `major_work`, `name`, `occuation` and `url`.
 
 **Sample Response:**
 
 ```json
 {
-    "docs": "https://github.com/chauhannaman98/IMDb-API#search-by-name",
+    "date": "Nov-02-2020",
+    "docs": "https://chauhannaman98.github.io/IMDb-API/#search-by-name",
     "search-results": [
         {
+            "major_work": "Ace Ventura: Pet Detective (1994)",
             "name": "Jim Carrey",
+            "occupation": "Actor",
             "url": "https://www.imdb.com/name/nm0000120/"
         },
     ],
-    "success": true
+    "status": true
 }
 ```
 
@@ -114,7 +118,8 @@ dictionary of key-value pairs that have details of TV Shows including `rank`, `r
 
 ```json
 {
-    "success": true,
+    "date": "Oct-31-2020",
+    "status": true,
     "top250": [
         {
             "rank": 1,
