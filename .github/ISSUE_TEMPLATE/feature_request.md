@@ -1,7 +1,7 @@
 ---
-name: Feature request
+name: "🆕Feature request"
 about: Suggest an idea for this project
-title: ':star2:[Feature Request] '
+title: '✨[Feature Request] '
 labels: 'enhancement'
 assignees: ''
 
