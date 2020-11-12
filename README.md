@@ -4,13 +4,14 @@
 </p>
 
 <p align="center">
-  <img alt="GitHub Pipenv locked dependency version" src="https://img.shields.io/github/pipenv/locked/dependency-version/chauhannaman98/IMDb-API/flask">
-</p>
-
-<p align="center">
   <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/chauhannaman98/IMDb-API">
   <img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/chauhannaman98/IMDb-API?color=red">
   <img alt="GitHub release (latest by date including pre-releases" src="https://img.shields.io/github/v/release/chauhannaman98/IMDb-API?include_prereleases">
+</p>
+
+<p align="center">
+  <img alt="GitHub forks" src="https://img.shields.io/github/forks/chauhannaman98/IMDb-API?style=social">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/chauhannaman98/IMDb-API?style=social">
 </p>
 
 <p align="center">
@@ -23,9 +24,9 @@
     <br />
     <a href="https://imdbapi.herokuapp.com">View Demo</a>
     ·
-    <a href="https://github.com/chauhannaman98/IMDb-API/issues">Report Bug</a>
+    <a href="https://github.com/chauhannaman98/IMDb-API/issues/new?assignees=&labels=&template=bug_report.md&title=">Report Bug</a>
     ·
-    <a href="https://github.com/chauhannaman98/IMDb-API/issues">Request Feature</a>
+    <a href="https://github.com/chauhannaman98/IMDb-API/issues/new?assignees=&labels=&template=feature_request.md&title=">Request Feature</a>
     ·
   <a href="https://github.com/chauhannaman98/IMDb-API/pulls">Make Pull Request</a>
   </p>
