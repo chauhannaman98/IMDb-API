@@ -36,8 +36,17 @@ application development which needs to utilize any feature of IMDb website. This
 
 This API is still in developement phase and running on non-production server. You may experience unexcepted outputs or internal server errors. Also, the first call to the API may take longer time than expected. The following calls will be fast comparatively.
 
-# Features
+# Documentation
+
+To read and know more about API and it's usage, [click here](https://chauhannaman98.github.io/IMDb-API)
+
+# API Features
 
 1. [Home](https://chauhannaman98.github.io/IMDb-API/#home)
 2. [Search](https://chauhannaman98.github.io/IMDb-API/#search)
 3. [TV Shows](https://chauhannaman98.github.io/IMDb-API/#tv-shows)
+
+# Contributors
+
+This API being currently being developed by [Naman Chauhan](https://github.com/chauhannaman98).
+Contact me through [email](mailto:chauhannaman98@gmail.com).
