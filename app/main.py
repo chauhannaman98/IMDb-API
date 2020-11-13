@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request
 from datetime import date
 from flask_restful import Resource, Api
 from app.api.search import Search
-from app.api.tv_shows import Top250
+from app.api.tv_shows import TVShows
 from sentry_sdk.integrations.flask import FlaskIntegration
 
 sentry_sdk.init(
@@ -28,7 +28,7 @@ class Home(Resource):
             'api-services-available': {
                 'Search by title': request.base_url+'search?stype=title&q=Titanic',
                 'Search by name': request.base_url+'search?stype=name&q=Jim',
-                'Top25 TV Shows': request.base_url+'tv-shows/top250',
+                'Top25 TV Shows': request.base_url+'tv-shows?find=top-rated',
             }
         })
 
@@ -40,7 +40,7 @@ def trigger_error():
 
 api.add_resource(Home, '/')
 api.add_resource(Search, '/search', endpoint='search')
-api.add_resource(Top250, '/tv-shows/top250', endpoint='top250')
+api.add_resource(TVShows, '/tv-shows', endpoint='tv-shows')
 
 if __name__ == '__main__':
     app.run(debug=True)
