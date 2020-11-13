@@ -8,32 +8,18 @@ except Exception as e:
 URL = 'https://www.imdb.com/chart/toptv/?ref_=nv_tvv_250'
 page = requests.get(URL)
 
-soup = BeautifulSoup(page.text, 'html.parser')
-
-show_ranks = []
-show_title = []
-year_of_release = []
-show_url = []
-show_ratings = []
-show_starcast = []
-top250 = []
-
-
-def save_to_list():
-    top250.clear()
-    for i in range(250):
-        item_dict = {}
-        item_dict['rank'] = show_ranks[i]
-        item_dict['title'] = show_title[i]
-        item_dict['year-of-release'] = year_of_release[i]
-        item_dict['starcast'] = show_starcast[i]
-        item_dict['url'] = show_url[i]
-        item_dict['rating'] = show_ratings[i]
-
-        top250.append(item_dict)
+soup = BeautifulSoup(page.text, 'html.parser')    
 
 
 def get_data():
+    show_ranks = []
+    show_title = []
+    year_of_release = []
+    show_url = []
+    show_ratings = []
+    show_starcast = []
+    top250 = []
+
     main_div = soup.find('div', class_='lister')
     tbody = main_div.find('tbody', class_='lister-list')
     trs = tbody.find_all('tr')
@@ -58,10 +44,22 @@ def get_data():
 
         i += 1
 
+    for i in range(250):
+        item_dict = {}
+        item_dict['rank'] = show_ranks[i]
+        item_dict['title'] = show_title[i]
+        item_dict['year-of-release'] = year_of_release[i]
+        item_dict['starcast'] = show_starcast[i]
+        item_dict['url'] = show_url[i]
+        item_dict['rating'] = show_ratings[i]
+
+        top250.append(item_dict)
+    
+    return top250
+
 
 def getTop250Shows():
-    get_data()
-    save_to_list()
+    top250 = get_data()
     return top250
 
 
