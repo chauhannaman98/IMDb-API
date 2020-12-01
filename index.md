@@ -1,6 +1,16 @@
 # IMDb-API
 
-A REST-API for IMDb based on Flask and BeautifulSoup using Python3. This API is deployed on Heroku's server on non-production dynos. Thus, the first call to the API may take longer time than expected. The following calls will be fast comparatively.
+<p align="center">
+   <a href="https://imdbapi.herokuapp.com">View Demo</a>
+    ·
+    <a href="https://github.com/chauhannaman98/IMDb-API/issues/new?assignees=&labels=&template=bug_report.md&title=">Report Bug</a>
+    ·
+    <a href="https://github.com/chauhannaman98/IMDb-API/issues/new?assignees=&labels=&template=feature_request.md&title=">Request Feature</a>
+</p>
+
+IMDb API is a web based REST API which can be used in various projects by web developers and even developers working on application development which needs to utilize any feature of IMDb website. This API will enable developers to get data according to their needs in an easy to read javascript object-notation (JSON) format.
+
+This API is still in developement phase and running on non-production server. You may experience unexcepted outputs or internal server errors. Also, the first call to the API may take longer time than expected. The following calls will be fast comparatively.
 
 # Features
 
