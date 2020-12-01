@@ -1,13 +1,4 @@
-# IMDb-API
-
-   <!---
-   [![View Demo](https://img.shields.io/badge/View%20Demo-brightgreen)](https://imdbapi.herokuapp.com)
-   
-   [![Bug Report](https://img.shields.io/badge/Bug%20Report-red)](https://github.com/chauhannaman98/IMDb-API/issues/new?assignees=&labels=&template=bug_report.md&title=)
-   
-   [!Request Feature](https://img.shields.io/badge/Request%20Feature-blueviolet)](https://github.com/chauhannaman98/IMDb-API/issues/new?assignees=&labels=&template=feature_request.md&title=) 
-   --->
-  
+# IMDb-API  
 
 IMDb API is a web based REST API which can be used in various projects by web developers and even developers working on application development which needs to utilize any feature of IMDb website. This API will enable developers to get data according to their needs in an easy to read javascript object-notation (JSON) format.
 
