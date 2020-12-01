@@ -1,4 +1,5 @@
 <p align="center">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/chauhannaman98/IMDb-API/CodeQL?label=CodeQL&logo=python&logoColor=white">
   <img alt="time tracker" src="https://wakatime.com/badge/github/chauhannaman98/IMDb-API.svg">
   <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/chauhannaman98/IMDb-API">
 </p>
