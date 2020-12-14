@@ -19,14 +19,20 @@ class Search(Resource):
         if(q_type == 'title'):
             response_obj = searchByTitle.SearchByTitle()
             response = response_obj.searchByTitle(q)
-            docs = 'title'
+            docs = '/#search-by-title'
+            success = True
         elif(q_type == 'name'):
             response_obj = searchByName.SearchByName()
             response = response_obj.searchByName(q)
-            docs = 'name'
+            docs = '/#search-by-name'
+            success = True
+        else:
+            obj = "400: Bad request"
+            docs = '/'
+            success = False
 
         return jsonify({
-            'success': True,
-            'docs': 'https://chauhannaman98.github.io/IMDb-API/#search-by-{}'.format(docs),
+            'success': success,
+            'docs': 'https://chauhannaman98.github.io/IMDb-API{}'.format(docs),
             'search-results': response
         })
