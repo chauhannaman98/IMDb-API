@@ -1,7 +1,7 @@
 try:
     from flask_restful import Resource
     from flask import jsonify, request
-    from app.services.tv_shows import (
+    from app.scrappers.tv_shows import (
         tvShowsTop250,
     )
 except Exception as e:

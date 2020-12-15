@@ -4,6 +4,7 @@ from datetime import date
 from flask_restful import Resource, Api
 from app.api.search import Search
 from app.api.tv_shows import TVShows
+from app.api.get import Get
 from sentry_sdk.integrations.flask import FlaskIntegration
 
 sentry_sdk.init(
@@ -41,6 +42,7 @@ def trigger_error():
 api.add_resource(Home, '/')
 api.add_resource(Search, '/search', endpoint='search')
 api.add_resource(TVShows, '/tv-shows', endpoint='tv-shows')
+api.add_resource(Get, '/get', endpoint='get')
 
 if __name__ == '__main__':
     app.run(debug=True)
