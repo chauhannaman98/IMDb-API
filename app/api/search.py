@@ -1,7 +1,7 @@
 try:
     from flask_restful import Resource
     from flask import jsonify, request
-    from app.services.search import (
+    from app.scrappers.search import (
         searchByTitle,
         searchByName,
     )
