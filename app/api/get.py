@@ -13,10 +13,11 @@ class Get(Resource):
 
         args = request.args
         q_type = args['type']
+        ID = args['id']
 
         if(q_type == 'title'):
             response_obj = getById.GetTitleById()
-            response = response_obj.getById()
+            response = response_obj.getById(ID)
             success = True
         elif(q_type == 'name'):
             response_obj = getById.GetNameById()
