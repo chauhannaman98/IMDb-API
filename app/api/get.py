@@ -7,13 +7,27 @@ try:
 except Exception as e:
     print('Caught exception while importing: {}'.format(e))
 
+
 class Get(Resource):
     def get(self):
-        response_obj = getById.GetById()
-        response = response_obj.getById()
-        print(response)
-        print(type(response))
+
+        args = request.args
+        q_type = args['type']
+        ID = args['id']
+
+        if(q_type == 'title'):
+            response_obj = getById.GetTitleById()
+            response = response_obj.getById(ID)
+            success = True
+        elif(q_type == 'name'):
+            response_obj = getById.GetNameById()
+            response = response_obj.getById()
+            success = True
+        else:
+            response = 'query type not supported'
+            success = False
+
         return jsonify({
-            'success': True,
+            'success': success,
             'response': response
         })
