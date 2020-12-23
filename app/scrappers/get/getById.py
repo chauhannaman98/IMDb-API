@@ -20,6 +20,7 @@ class GetTitleById:
         soup = BeautifulSoup(page.text, 'html.parser')
 
         title_bar = soup.find('div', class_='title_bar_wrapper')
+
         rating = float(title_bar.find(itemprop='ratingValue').get_text())
         rating_count = title_bar.find(itemprop='ratingCount').get_text()
         rating_count = locale.atoi(rating_count)
@@ -28,14 +29,16 @@ class GetTitleById:
         title_bar1 = title_bar.find('h1', class_='')
         title_bar1.span.decompose()
         title = title_bar1.get_text().rstrip()
+        running_time = title_bar.find('time').get_text().lstrip().rstrip()
 
-        # print(title)
+        print(running_time)
 
         # storing results in dictionary
         response['rating'] = rating
         response['rating_count'] = rating_count
         response['release_year'] = release_year
         response['title'] = title
+        response['running_time'] = running_time
 
         return response
 
