@@ -81,7 +81,7 @@ class GetTitleById:
                             if a_tag.get_text() != 'See more':
                                 data = url+a_tag['href']
                                 official_site[a_tag.get_text()] = data
-                        details['official-site'] = official_site
+                        details['official-sites'] = official_site
             except Exception as e:
                 print(e)
 
@@ -95,7 +95,7 @@ class GetTitleById:
         response['running_time'] = running_time
         response['summary_text'] = summary_text
         response['storyline'] = storyline_dict
-        response['deails']: details
+        response['details'] = details
 
         return response
 
