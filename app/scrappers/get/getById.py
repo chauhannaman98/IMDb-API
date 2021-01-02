@@ -14,7 +14,7 @@ locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 class GetTitleById:
     def getById(self, title_id):
         response = {}
-        url = BASE_URL+'title/'+title_id+'/'
+        url = BASE_URL+'title/'+title_id
         page = requests.get(url)
 
         soup = BeautifulSoup(page.text, 'html.parser')
@@ -38,7 +38,8 @@ class GetTitleById:
         storyline = soup.find('div', {'id': 'titleStoryLine'})
 
         storyline_summary = storyline.find('div', class_='inline canwrap')
-        storyline_summary = storyline_summary.find('span').text.rstrip().lstrip()
+        storyline_summary = storyline_summary.find(
+            'span').text.rstrip().lstrip()
         plot_soup = storyline.findAll('div', 'see-more inline canwrap')[0]
         keywords_soup = plot_soup.find_all('span')
         keywords = []
@@ -54,13 +55,37 @@ class GetTitleById:
         genres = []
         for gen in genres_soup:
             genres.append(gen.get_text().lstrip().rstrip())
-        # print(genres_soup)
 
         # Storing storyline data in dictionary
         storyline_dict['plot'] = storyline_summary
         storyline_dict['plot_keywords'] = keywords
         storyline_dict['tagline'] = tagline
         storyline_dict['genres'] = genres
+
+        # Title detail section
+        title_detail_soup = soup.find('div', {'id': 'titleDetails'})
+        headings_soup = title_detail_soup.find_all(['h2', 'h3'])
+        details_soup = title_detail_soup.find_all('div', class_='txt-block')
+        detail_list = ['Official Sites:', 'Country:', 'Language:',
+                       'Release Date:', 'Also Known As:', 'Filming Locations:']
+        details = {}
+        for detail in details_soup:
+            try:
+                head = detail.find('h4')
+                if head.get_text() in detail_list:
+                    if head.get_text() == 'Official Sites:':
+                        official_site = {}
+                        detail.h4.decompose()
+                        a_tags = detail.find_all('a')
+                        for a_tag in a_tags:
+                            if a_tag.get_text() != 'See more':
+                                data = url+a_tag['href']
+                                official_site[a_tag.get_text()] = data
+                        details['official-site'] = official_site
+            except Exception as e:
+                print(e)
+
+        # print(details)
 
         # storing results in dictionary
         response['rating'] = rating
@@ -70,6 +95,7 @@ class GetTitleById:
         response['running_time'] = running_time
         response['summary_text'] = summary_text
         response['storyline'] = storyline_dict
+        response['deails']: details
 
         return response
 
