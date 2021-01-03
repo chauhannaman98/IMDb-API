@@ -79,13 +79,14 @@ class GetTitleById:
                         a_tags = detail.find_all('a')
                         for a_tag in a_tags:
                             if a_tag.get_text() != 'See more':
+                                print(a_tag)
                                 data = url+a_tag['href']
                                 official_site[a_tag.get_text()] = data
                         details['official-sites'] = official_site
             except Exception as e:
                 print(e)
 
-        # print(details)
+        print(details)
 
         # storing results in dictionary
         response['rating'] = rating
