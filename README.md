@@ -1,6 +1,7 @@
 <p align="center">
   <img alt="time tracker" src="https://wakatime.com/badge/github/chauhannaman98/IMDb-API.svg">
   <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/chauhannaman98/IMDb-API">
+  <img alt="GitHub Pipenv locked Python version" src="https://img.shields.io/github/pipenv/locked/python-version/chauhannaman98/IMDb-API?logo=python&logoColor=white">
 </p>
 
 <p align="center">
