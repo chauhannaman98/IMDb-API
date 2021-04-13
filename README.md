@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img alt="DeepSource" src="https://deepsource.io/gh/chauhannaman98/IMDb-API.svg/?label=active+issues&show_trend=true">
+  <a href="https://deepsource.io/gh/chauhannaman98/IMDb-API/?ref=repository-badge" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/chauhannaman98/IMDb-API.svg/?label=active+issues&show_trend=true"/></a>
 </p>
 
 <p align="center">
