@@ -11,6 +11,10 @@
 </p>
 
 <p align="center">
+  <img alt="DeepSource" src="https://deepsource.io/gh/chauhannaman98/IMDb-API.svg/?label=active+issues&show_trend=true">
+</p>
+
+<p align="center">
   <img alt="GitHub forks" src="https://img.shields.io/github/forks/chauhannaman98/IMDb-API?style=social">
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/chauhannaman98/IMDb-API?style=social">
 </p>
@@ -40,7 +44,7 @@ This API is still in developement phase and running on non-production server. Yo
 
 # Documentation
 
-To read and know more about API and it's usage, [click here](https://chauhannaman98.github.io/IMDb-API)
+To read and know more about API and it's usage, [click here](https://chauhannaman98.github.io/IMDb-API) 
 
 # API Features
 
