@@ -24,10 +24,10 @@
     <p align="center">
         A REST API for IMDb for web developers!
     <br />
-    <a href="https://chauhannaman98.github.io/IMDb-API/"><strong>Explore the docs »</strong></a>
+    <a href="http://imdbapi-docs.techmirtz.com/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://imdbapi.herokuapp.com">View Demo</a>
+    <a href="https://imdb-api-omega.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/chauhannaman98/IMDb-API/issues/new?assignees=&labels=&template=bug_report.md&title=">Report Bug</a>
     ·
