@@ -25,7 +25,7 @@ class Home(Resource):
         return jsonify({
             'status': True,
             'date': str(date.today().strftime("%b-%d-%Y")),
-            'docs': 'https://imdbapi.techmirtz.me',
+            'docs': 'http://imdbapi.techmirtz.com/',
             'api-services-available': {
                 'Search by title': request.base_url+'search?stype=title&q=Titanic',
                 'Search by name': request.base_url+'search?stype=name&q=Jim',
